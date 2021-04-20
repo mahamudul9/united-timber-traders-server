@@ -68,6 +68,7 @@ client.connect(err => {
       res.send(items)
     })
   })
+
   
   // review section
   app.post('/addreview', (req, res)=> {
@@ -96,6 +97,8 @@ client.connect(err => {
     })
   })
 
+  
+
   //admin section
   app.post('/addAdmin',(req,res)=>{
     const admin = req.body;
@@ -120,6 +123,6 @@ app.get('/', (req, res) => {
   })
   
 const port = 5000
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
 console.log(`Example app listening at http://localhost:${port}`)
 })
