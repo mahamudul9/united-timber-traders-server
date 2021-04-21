@@ -20,6 +20,10 @@ client.connect(err => {
   const adminCollection = client.db(process.env.DB_DATABASE).collection(process.env.DB_ADMIN);
   const reviewCollection = client.db(process.env.DB_DATABASE).collection(process.env.DB_REV);
   
+  app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+  
   app.post('/addServices', (req, res)=> {
     const file = req.files.file;
     const title = req.body.title;
@@ -118,9 +122,7 @@ client.connect(err => {
   
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+
   
 const port = 5000
 app.listen(process.env.PORT || port, () => {
