@@ -12,7 +12,7 @@ app.use(fileUpload());
 
 const ObjectID=require('mongodb').ObjectID;
 const MongoClient = require('mongodb').MongoClient;
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ywjyr.mongodb.net/${process.env.DB_DATABASE}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://mobileUser:1Mobile1User@cluster0.ywjyr.mongodb.net/unitedTimberDB?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   console.log(err);
