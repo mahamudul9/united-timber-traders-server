@@ -23,7 +23,7 @@ client.connect(err => {
   app.get('/', (req, res) => {
     res.send('Hello World!')
   })
-  
+
   app.post('/addServices', (req, res)=> {
     const file = req.files.file;
     const title = req.body.title;
@@ -95,7 +95,7 @@ client.connect(err => {
   })
 
   app.get('/review',(req,res)=>{
-    reviewCollection.find()
+    reviewCollection.find({})
     .toArray((err, items)=>{
       res.send(items)
     })
