@@ -43,7 +43,7 @@ client.connect(err => {
   })
 
   app.get('/services', (req, res)=> {
-    serviceCollection.find()
+    serviceCollection.find({})
     .toArray((err, items)=>{
       res.send(items);
     })
@@ -67,7 +67,7 @@ client.connect(err => {
   })
 
   app.get('/booking',(req,res)=>{
-    bookingCollection.find()
+    bookingCollection.find({})
     .toArray((err, items)=>{
       res.send(items)
     })
@@ -114,7 +114,7 @@ client.connect(err => {
   })
 
   app.get('/admins', (req, res)=> {
-    adminCollection.find()
+    adminCollection.find({})
     .toArray((err, items)=>{
       res.send(items);
     })
