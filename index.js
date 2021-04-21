@@ -6,7 +6,7 @@ const app = express()
 const fileUpload= require('express-fileupload'); 
 require('dotenv').config()
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
 app.use(fileUpload());
 
@@ -15,10 +15,10 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ywjyr.mongodb.net/${process.env.DB_DATABASE}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
-  const serviceCollection = client.db(process.env.DB_DATABASE).collection(process.env.DB_COLLECT);
-  const bookingCollection = client.db(process.env.DB_DATABASE).collection(process.env.DB_BOOK);
-  const adminCollection = client.db(process.env.DB_DATABASE).collection(process.env.DB_ADMIN);
-  const reviewCollection = client.db(process.env.DB_DATABASE).collection(process.env.DB_REV);
+  const serviceCollection = client.db("unitedTimberDB").collection("unitedTimber");
+  const bookingCollection = client.db("unitedTimberDB").collection("bookings");
+  const adminCollection = client.db("unitedTimberDB").collection("admins");
+  const reviewCollection = client.db("unitedTimberDB").collection("reviews");
   
   app.get('/', (req, res) => {
     res.send('Hello World!')
